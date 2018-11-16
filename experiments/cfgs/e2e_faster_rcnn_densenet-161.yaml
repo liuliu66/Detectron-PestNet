@@ -1,0 +1,41 @@
+MODEL:
+  TYPE: generalized_rcnn
+  CONV_BODY: DenseNet.add_DenseNet161_conv5_body
+  #CONV_BODY: FPN.add_fpn_DenseNet161_conv5_body
+  NUM_CLASSES: 2
+  FASTER_RCNN: True
+NUM_GPUS: 1
+SOLVER:
+  WEIGHT_DECAY: 0.0001
+  LR_POLICY: steps_with_decay
+  BASE_LR: 0.001
+  GAMMA: 0.1
+  MAX_ITER: 10000
+  STEPS: [0, 4000, 4000]
+FPN:
+  FPN_ON: False
+  MULTILEVEL_ROIS: True
+  MULTILEVEL_RPN: True
+  RPN_ANCHOR_SIZE_INCREASE: 2.
+  RPN_ANCHOR_START_SIZE: 32
+FAST_RCNN:
+  ROI_BOX_HEAD: fast_rcnn_heads.add_roi_2mlp_head
+  ROI_XFORM_METHOD: RoIAlign
+  ROI_XFORM_RESOLUTION: 7
+  ROI_XFORM_SAMPLING_RATIO: 2
+TRAIN:
+  #WEIGHTS: pretrained_models/densenet-161.pkl
+  DATASETS: ('coco_2014_trainval',)
+  SCALES: (600,)
+  MAX_SIZE: 800
+  BATCH_SIZE_PER_IM: 256
+  RPN_PRE_NMS_TOP_N: 2000  # Per FPN level
+TEST:
+  DATASETS: ('coco_2014_test',)
+  SCALE: 600
+  MAX_SIZE: 800
+  NMS: 0.5
+  RPN_PRE_NMS_TOP_N: 1000  # Per FPN level
+  RPN_POST_NMS_TOP_N: 1000
+OUTPUT_DIR: .
+  experiments/output/faster_rcnn/densenet-121

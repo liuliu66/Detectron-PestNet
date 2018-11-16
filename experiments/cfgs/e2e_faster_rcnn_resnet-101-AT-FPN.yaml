@@ -1,0 +1,42 @@
+MODEL:
+  TYPE: generalized_rcnn
+  CONV_BODY: FPN.add_fpn_ResNet101_conv5_body
+  BACKBONE_NAME: ResNet101
+  ATTENTIONAL_TRANSITION: True
+  NUM_CLASSES: 39
+  FASTER_RCNN: True
+NUM_GPUS: 1
+SOLVER:
+  WEIGHT_DECAY: 0.0001
+  LR_POLICY: steps_with_decay
+  BASE_LR: 0.001
+  GAMMA: 0.1
+  MAX_ITER: 300000
+  STEPS: [0, 80000, 160000, 240000]
+FPN:
+  FPN_ON: True
+  MULTILEVEL_ROIS: True
+  MULTILEVEL_RPN: True
+FAST_RCNN:
+  ROI_BOX_HEAD: fast_rcnn_heads.add_roi_2mlp_head
+  ROI_XFORM_METHOD: RoIAlign
+  ROI_XFORM_RESOLUTION: 7
+  ROI_XFORM_SAMPLING_RATIO: 2
+TRAIN:
+  WEIGHTS: pretrained_models/R-101.pkl
+  DATASETS: ('coco_2014_trainval',)
+  SCALES: (1000,)
+  MAX_SIZE: 1200
+  BATCH_SIZE_PER_IM: 512
+  RPN_PRE_NMS_TOP_N: 2000  # Per FPN level
+TEST:
+  DATASETS: ('coco_2014_test',)
+  SCALE: 1300
+  MAX_SIZE: 1500
+  NMS: 0.5
+  RPN_PRE_NMS_TOP_N: 1000  # Per FPN level
+  RPN_POST_NMS_TOP_N: 1000
+  COCO_EVALUATOR: True
+  VOC_EVALUATOR: True
+OUTPUT_DIR: .
+  experiments/output/faster_rcnn/resnet-101
