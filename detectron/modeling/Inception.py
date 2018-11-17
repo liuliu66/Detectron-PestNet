@@ -20,7 +20,7 @@ def add_Inception_v1_conv5_body(model):
     model.Conv('conv2_3x3_reduce', 'conv2_3x3', 64, 192, kernel=3, pad=1)
     model.Relu('conv2_3x3', 'conv2_3x3')
     model.LRN('conv2_3x3', 'conv2_norm2', size=5, alpha=0.0001, beta=0.75)
-    if cfg.MODEL.ATTENTIONAL_TRANSITION:
+    if cfg.MODEL.GAM:
         model.ChannelAttentionalTransition('conv2_norm2', 'conv2', dim=192)
         model.MaxPool('conv2', 'pool2_3x3_s2', kernel=3, pad=0, stride=2)
     else:
@@ -66,7 +66,7 @@ def add_Inception_v1_conv5_body(model):
     model.Relu('inception_3b_pool_proj', 'inception_3b_pool_proj')
 
     model.Concat(['inception_3b_1x1', 'inception_3b_3x3', 'inception_3b_5x5', 'inception_3b_pool_proj'], 'inception_3b_output')
-    if cfg.MODEL.ATTENTIONAL_TRANSITION:
+    if cfg.MODEL.GAM:
         model.ChannelAttentionalTransition('inception_3b_output', 'inception_3b', dim=480)
         model.MaxPool('inception_3b', 'pool3_3x3_s2', kernel=3, pad=0, stride=2)
 
@@ -176,7 +176,7 @@ def add_Inception_v1_conv5_body(model):
     model.Relu('inception_4e_pool_proj', 'inception_4e_pool_proj')
 
     model.Concat(['inception_4e_1x1', 'inception_4e_3x3', 'inception_4e_5x5', 'inception_4e_pool_proj'], 'inception_4e_output')
-    if cfg.MODEL.ATTENTIONAL_TRANSITION:
+    if cfg.MODEL.GAM:
         model.ChannelAttentionalTransition('inception_4e_output', 'inception_4e', dim=832)
         model.MaxPool('inception_4e', 'pool4_3x3_s2', kernel=3, pad=0, stride=2)
 
@@ -223,7 +223,7 @@ def add_Inception_v1_conv5_body(model):
     model.Relu('inception_5b_pool_proj', 'inception_5b_pool_proj')
 
     blob_out = model.Concat(['inception_5b_1x1', 'inception_5b_3x3', 'inception_5b_5x5', 'inception_5b_pool_proj'], 'inception_5b_output')
-    if cfg.MODEL.ATTENTIONAL_TRANSITION:
+    if cfg.MODEL.GAM:
         blob_out = model.ChannelAttentionalTransition('inception_5b_output', 'inception_5b', dim=1024)
     return blob_out, 1024, 1. / 32.
 
