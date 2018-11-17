@@ -658,7 +658,7 @@ FpnLevelInfo = collections.namedtuple(
 
 def fpn_level_info_ResNet50_conv5():
     return FpnLevelInfo(
-        blobs=('res5_2_sum', 'res4_5_sum', 'res3_3_sum', 'res2_2_sum'),
+        blobs=('res5', 'res4', 'res3', 'res2'),
         dims=(2048, 1024, 512, 256),
         spatial_scales=(1. / 32., 1. / 16., 1. / 8., 1. / 4.)
     )

@@ -502,7 +502,7 @@ __C.MODEL.RPN_ONLY = False
 __C.MODEL.EXECUTION_TYPE = b'dag'
 
 # Attentional Transition
-__C.MODEL.ATTENTIONAL_TRANSITION = False
+__C.MODEL.GAM = False
 
 # fast rcnn and rfcn fused
 __C.MODEL.FR_FUSED = False

@@ -90,10 +90,10 @@ def add_stage(
             inplace_sum=i < n - 1
         )
         dim_in = dim_out
-    if cfg.MODEL.ATTENTIONAL_TRANSITION and not cfg.MODEL.CLASSIFICATION:
+    if cfg.MODEL.GAM and not cfg.MODEL.CLASSIFICATION:
         blob_out = model.AttentionalTransition(blob_in, prefix, dim=dim_in)
         return blob_out, dim_in
-    elif cfg.MODEL.ATTENTIONAL_TRANSITION and cfg.MODEL.CLASSIFICATION:
+    elif cfg.MODEL.GAM and cfg.MODEL.CLASSIFICATION:
         blob_out = model.ChannelAttentionalTransition(blob_in, prefix, dim=dim_in)
         return blob_out, dim_in
     else:
