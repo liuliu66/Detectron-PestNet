@@ -1,0 +1,38 @@
+<annotation>
+	<folder>Folder 01_jpg</folder>
+	<filename>002_00022280.jpg</filename>
+	<path>D:\data\wheat_spider\Folder 01_jpg\002_00022280.jpg</path>
+	<source>
+		<database>Unknown</database>
+	</source>
+	<size>
+		<width>4032</width>
+		<height>3024</height>
+		<depth>3</depth>
+	</size>
+	<segmented>0</segmented>
+	<object>
+		<name>11111</name>
+		<pose>Unspecified</pose>
+		<truncated>0</truncated>
+		<difficult>0</difficult>
+		<bndbox>
+			<xmin>1558</xmin>
+			<ymin>1511</ymin>
+			<xmax>1665</xmax>
+			<ymax>1625</ymax>
+		</bndbox>
+	</object>
+	<object>
+		<name>11111</name>
+		<pose>Unspecified</pose>
+		<truncated>0</truncated>
+		<difficult>0</difficult>
+		<bndbox>
+			<xmin>1500</xmin>
+			<ymin>1032</ymin>
+			<xmax>1577</xmax>
+			<ymax>1109</ymax>
+		</bndbox>
+	</object>
+</annotation>

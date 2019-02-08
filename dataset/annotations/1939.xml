@@ -1,0 +1,26 @@
+<annotation verified="no">
+  <folder>feishi</folder>
+  <filename>1939</filename>
+  <path>D:\feishi\1939.JPG</path>
+  <source>
+    <database>Unknown</database>
+  </source>
+  <size>
+    <width>1440</width>
+    <height>1080</height>
+    <depth>3</depth>
+  </size>
+  <segmented>0</segmented>
+  <object>
+    <name>1</name>
+    <pose>Unspecified</pose>
+    <truncated>0</truncated>
+    <difficult>0</difficult>
+    <bndbox>
+      <xmin>473</xmin>
+      <ymin>803</ymin>
+      <xmax>510</xmax>
+      <ymax>868</ymax>
+    </bndbox>
+  </object>
+</annotation>

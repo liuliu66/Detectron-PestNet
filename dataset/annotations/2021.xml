@@ -1,0 +1,26 @@
+<annotation verified="no">
+  <folder>feishi</folder>
+  <filename>2021</filename>
+  <path>D:\feishi\2021.JPG</path>
+  <source>
+    <database>Unknown</database>
+  </source>
+  <size>
+    <width>1440</width>
+    <height>1080</height>
+    <depth>3</depth>
+  </size>
+  <segmented>0</segmented>
+  <object>
+    <name>1</name>
+    <pose>Unspecified</pose>
+    <truncated>0</truncated>
+    <difficult>0</difficult>
+    <bndbox>
+      <xmin>769</xmin>
+      <ymin>854</ymin>
+      <xmax>810</xmax>
+      <ymax>919</ymax>
+    </bndbox>
+  </object>
+</annotation>
